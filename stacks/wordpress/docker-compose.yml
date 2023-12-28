@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: ${MYSQL_DATABASE_PASSWORD}
+       HOST: ${HOST}
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+     networks:
+       - wordpress
+
+   wordpress:
+     image: wordpress:latest
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: wordpress
+     networks:
+       - wordpress
+       - frontend
+     labels:
+       - "traefik.enable=true"
+       - "traefik.docker.network=frontend"
+       - "traefik.http.routers.wordpress.service=wordpress"
+       - "traefik.http.services.wordpress.loadbalancer.server.port=80"
+       - "traefik.http.routers.wordpress.rule=Host(`${HOST}.ywhbki.com`)"
+       - "traefik.http.routers.wordpress.entrypoints=web"
+volumes:
+    db_data:
+    
+networks:
+  wordpress:
+    internal: true
+  frontend:
+    external: true
