@@ -960,7 +960,7 @@
       "platform": "linux",
       "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
       "repository": {
-        "url": "file:///templates",
+        "url": "https://github.com/BrenHappi/portainer-templates",
         "stackfile": "stacks/wordpress/docker-stack.yml"
       },
       "env": [
@@ -985,7 +985,7 @@
       "platform": "linux",
       "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
       "repository": {
-        "url": "file:///templates",
+        "url": "https://github.com/BrenHappi/portainer-templates",
         "stackfile": "stacks/wordpress/docker-compose.yml"
       },
       "env": [
