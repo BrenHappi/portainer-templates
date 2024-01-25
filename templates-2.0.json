@@ -971,7 +971,7 @@
         },
         {
           "name": "HOST",
-          "label": "The external hostname of server",
+          "label": "Traefik hostname",
           "description": "The external hostname of server(<your-domain>.ywh.at)."
         }
       ]
@@ -996,7 +996,7 @@
         },
 	 {
           "name": "HOST",
-          "label": "The external hostname of server",
+          "label": "Traefik hostname",
           "description": "The external hostname of server(<your-domain>.ywh.at)."
         }
       ]
